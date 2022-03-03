@@ -1,5 +1,5 @@
 import * as jwt from "jsonwebtoken";
-import configuration from "../configurations/configuration";
+import configuration from "../configurations/Configuration";
 import WrongAuthenticationTokenException from "../exceptions/WrongAuthenticationTokenException";
 import { SessionData } from "../types/auth";
 

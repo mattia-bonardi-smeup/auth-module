@@ -7,6 +7,7 @@ import { AuthData, TokenData } from "../types/auth";
 /**
  * Login function
  * @param authData
+ * @returns accessToken, refreshToken
  */
 export default async function login(authData: AuthData): Promise<TokenData> {
   const user = await userModel.findOne({ email: authData.email });
