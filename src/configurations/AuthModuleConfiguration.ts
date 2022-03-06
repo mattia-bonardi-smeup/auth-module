@@ -1,5 +1,5 @@
 /** JWT configuration */
-class AuthConfiguration {
+class AuthModuleConfiguration {
   private JWT_SECRET = "fdshkdjhzklhzk";
   private ACCESS_TOKEN_DURATION = 3600; //60 minutes
   private REFRESH_TOKEN_DURATION = 14400; //4 hours
@@ -29,5 +29,5 @@ class AuthConfiguration {
   }
 }
 
-const configuration = new AuthConfiguration();
-export default configuration;
+const authModuleConfiguration = new AuthModuleConfiguration();
+export default authModuleConfiguration;

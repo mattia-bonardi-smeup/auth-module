@@ -1,5 +1,5 @@
 import * as jwt from "jsonwebtoken";
-import configuration from "../configurations/Configuration";
+import authModuleConfiguration from "../configurations/AuthModuleConfiguration";
 import WrongAuthenticationTokenException from "../exceptions/WrongAuthenticationTokenException";
 import { SessionData } from "../types/auth";
 
@@ -9,12 +9,12 @@ import { SessionData } from "../types/auth";
  * @returns
  */
 export const createAccessToken = (userId: string) => {
-  const expiresIn = configuration.getAccessTokenDuration();
+  const expiresIn = authModuleConfiguration.getAccessTokenDuration();
   const dataStoredInToken: SessionData = {
     userId: userId,
     tokenType: "ACCESS_TOKEN",
   };
-  return jwt.sign(dataStoredInToken, configuration.getJwtSecret(), {
+  return jwt.sign(dataStoredInToken, authModuleConfiguration.getJwtSecret(), {
     expiresIn,
   });
 };
@@ -25,12 +25,12 @@ export const createAccessToken = (userId: string) => {
  * @returns
  */
 export const createRefreshToken = (userId: string) => {
-  const expiresIn = configuration.GetRefreshTokenDuration();
+  const expiresIn = authModuleConfiguration.GetRefreshTokenDuration();
   const dataStoredInToken: SessionData = {
     userId: userId,
     tokenType: "REFRESH_TOKEN",
   };
-  return jwt.sign(dataStoredInToken, configuration.getJwtSecret(), {
+  return jwt.sign(dataStoredInToken, authModuleConfiguration.getJwtSecret(), {
     expiresIn,
   });
 };
@@ -42,7 +42,10 @@ export const createRefreshToken = (userId: string) => {
  */
 export const verifyToken = (token: string): SessionData => {
   try {
-    return jwt.verify(token, configuration.getJwtSecret()) as SessionData;
+    return jwt.verify(
+      token,
+      authModuleConfiguration.getJwtSecret()
+    ) as SessionData;
   } catch (error) {
     throw new WrongAuthenticationTokenException();
   }

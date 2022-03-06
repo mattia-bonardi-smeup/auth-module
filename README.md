@@ -8,6 +8,18 @@ Auth module for node.js backend applications
 npm install auth-module
 ```
 
+## Configuration
+
+By the default auth module is pre configured but it is possible to use custom configuration like this:
+
+```
+import authModuleConfiguration from "../configurations/AuthModuleConfiguration";
+
+authModuleConfiguration.setJwtSecret([JWT_SECRET]);
+authModuleConfiguration.setJAccessTokenDuration([ACCESS_TOKEN_DURATION]);
+authModuleConfiguration.setRefreshTokenDuration([REFRESH_TOKEN_DURATION]);
+```
+
 ## User attributes
 
 - id: user id
