@@ -1,8 +1,8 @@
-import AuthenticationTokenMissingException from "../exceptions/AuthenticationTokenMissingException";
-import WrongAuthenticationTokenException from "../exceptions/WrongAuthenticationTokenException";
-import userModel from "../models/user";
-import { createAccessToken, verifyToken } from "../services/token";
-import { TokenData } from "../types/auth";
+import AuthenticationTokenMissingException from "../exceptions/AuthenticationTokenMissingException.js";
+import WrongAuthenticationTokenException from "../exceptions/WrongAuthenticationTokenException.js";
+import userModel from "../models/user.js";
+import { createAccessToken, verifyToken } from "../services/token.js";
+import { TokenData } from "../types/auth.js";
 
 /**
  * Refresh token function

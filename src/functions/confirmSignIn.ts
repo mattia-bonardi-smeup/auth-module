@@ -1,5 +1,5 @@
-import MongoCrudException from "../exceptions/MongoCrudException";
-import userModel from "../models/user";
+import MongoCrudException from "../exceptions/MongoCrudException.js";
+import userModel from "../models/user.js";
 
 /**
  * Confirm sign in function

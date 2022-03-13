@@ -1,8 +1,8 @@
-import WrongCredentialsException from "../exceptions/WrongCredentialsException";
-import userModel from "../models/user";
-import { compareCryptString } from "../services/crypt";
-import { createAccessToken, createRefreshToken } from "../services/token";
-import { AuthData, TokenData } from "../types/auth";
+import WrongCredentialsException from "../exceptions/WrongCredentialsException.js";
+import userModel from "../models/user.js";
+import { compareCryptString } from "../services/crypt.js";
+import { createAccessToken, createRefreshToken } from "../services/token.js";
+import { AuthData, TokenData } from "../types/auth.js";
 
 /**
  * Login function

@@ -1,9 +1,9 @@
-import AuthenticationTokenMissingException from "../exceptions/AuthenticationTokenMissingException";
-import MongoCrudException from "../exceptions/MongoCrudException";
-import WrongAuthenticationTokenException from "../exceptions/WrongAuthenticationTokenException";
-import userModel from "../models/user";
-import { verifyToken } from "../services/token";
-import User from "../types/user";
+import AuthenticationTokenMissingException from "../exceptions/AuthenticationTokenMissingException.js";
+import MongoCrudException from "../exceptions/MongoCrudException.js";
+import WrongAuthenticationTokenException from "../exceptions/WrongAuthenticationTokenException.js";
+import userModel from "../models/user.js";
+import { verifyToken } from "../services/token.js";
+import User from "../types/user.js";
 
 /**
  * Authorize user function

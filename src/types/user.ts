@@ -1,7 +1,7 @@
 /**
  * User
  */
-export default interface User {
+type User = {
   /** Id */
   id: string;
   /** IsActive */
@@ -20,4 +20,6 @@ export default interface User {
   roles: string[];
   /** Is oauth user ? */
   isOauth: boolean;
-}
+};
+
+export default User;

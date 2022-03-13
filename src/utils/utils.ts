@@ -1,4 +1,4 @@
-import User from "../types/user";
+import User from "../types/user.js";
 
 /**
  * Create empty user function

@@ -1,4 +1,4 @@
-import * as bcrypt from "bcryptjs";
+import bcrypt from "bcryptjs";
 
 /** crypt string */
 export const cryptString = (value: string): string => {

@@ -1,24 +1,24 @@
 /**
  * Auth data
  */
-export interface AuthData {
+export type AuthData = {
   email: string;
   password: string;
   type: string;
-}
+};
 
 /**
  * TokenData
  */
-export interface TokenData {
+export type TokenData = {
   accessToken: string;
   refreshToken: string;
-}
+};
 
 /**
  * Session data
  */
-export interface SessionData {
+export type SessionData = {
   userId: string;
   tokenType: string;
-}
+};

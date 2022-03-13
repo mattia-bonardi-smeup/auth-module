@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "target": "es2017",
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "Node",
     "declaration": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "outDir": "lib/"
   }
 }

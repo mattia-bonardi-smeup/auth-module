@@ -1,8 +1,8 @@
-import MongoCrudException from "../exceptions/MongoCrudException";
-import UserWithThatEmailAlreadyExistsException from "../exceptions/UserWithThatEmailAlreadyExistsException";
-import userModel from "../models/user";
-import { cryptString } from "../services/crypt";
-import User from "../types/user";
+import MongoCrudException from "../exceptions/MongoCrudException.js";
+import UserWithThatEmailAlreadyExistsException from "../exceptions/UserWithThatEmailAlreadyExistsException.js";
+import userModel from "../models/user.js";
+import { cryptString } from "../services/crypt.js";
+import User from "../types/user.js";
 
 /**
  * Registration function

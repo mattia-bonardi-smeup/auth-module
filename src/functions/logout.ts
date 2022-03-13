@@ -1,4 +1,4 @@
-import { TokenData } from "../types/auth";
+import { TokenData } from "../types/auth.js";
 
 /**
  * Logout function

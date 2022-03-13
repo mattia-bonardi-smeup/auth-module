@@ -1,6 +1,6 @@
 import { plainToClass } from "class-transformer";
 import { validate, ValidationError } from "class-validator";
-import ValidationException from "../exceptions/ValidationException";
+import ValidationException from "../exceptions/ValidationException.js";
 
 export default function validateBody<T>(
   body: any,
