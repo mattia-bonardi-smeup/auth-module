@@ -1,10 +1,10 @@
 {
-  "name": "auth-module",
+  "name": "@iterout/auth-module",
   "version": "1.0.0",
   "description": "auth module for node backend applications",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf lib",
     "build": "npm run clean && tsc"
   },
   "repository": {
@@ -14,7 +14,7 @@
   "keywords": [
     "auth"
   ],
-  "author": "Mattia Bonardi",
+  "author": "@iterout",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mattia-bonardi-smeup/auth-module/issues"
@@ -29,7 +29,11 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.13.2",
+    "class-transformer": "^0.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.4"
-  }
+  },
+  "files": [
+    "lib/"
+  ]
 }

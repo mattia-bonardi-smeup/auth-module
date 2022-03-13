@@ -13,7 +13,7 @@ npm install auth-module
 By the default auth module is pre configured but it is possible to use custom configuration like this:
 
 ```
-import authModuleConfiguration from "../configurations/AuthModuleConfiguration";
+import authModuleConfiguration from "auth-module/dist/configurations/AuthModuleConfiguration";
 
 authModuleConfiguration.setJwtSecret([JWT_SECRET]);
 authModuleConfiguration.setJAccessTokenDuration([ACCESS_TOKEN_DURATION]);
