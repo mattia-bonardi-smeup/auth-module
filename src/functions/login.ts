@@ -1,8 +1,10 @@
+import NotAuthorizedException from "../exceptions/NotAuthorizedException.js";
 import WrongCredentialsException from "../exceptions/WrongCredentialsException.js";
 import userModel from "../models/user.js";
 import { compareCryptString } from "../services/crypt.js";
 import { createAccessToken, createRefreshToken } from "../services/token.js";
 import { AuthData, TokenData } from "../types/auth.js";
+import User from "../types/user.js";
 
 /**
  * Login function
@@ -10,19 +12,21 @@ import { AuthData, TokenData } from "../types/auth.js";
  * @returns accessToken, refreshToken
  */
 export default async function login(authData: AuthData): Promise<TokenData> {
-  const user = await userModel.findOne({ email: authData.email });
+  const user: User = await userModel.findOne({ email: authData.email });
   if (
     user &&
     user.password &&
     compareCryptString(authData.password, user.password) &&
-    user.type === authData.type &&
-    user.isOauth === false &&
-    user.isActive == true
+    user.type == authData.type
   ) {
-    return {
-      accessToken: "Bearer " + createAccessToken(user.id),
-      refreshToken: "Bearer " + createRefreshToken(user.id),
-    };
+    if (user.isActive && !user.isOauth) {
+      return {
+        accessToken: "Bearer " + createAccessToken(user.id),
+        refreshToken: "Bearer " + createRefreshToken(user.id),
+      };
+    } else {
+      throw new NotAuthorizedException();
+    }
   } else {
     throw new WrongCredentialsException();
   }

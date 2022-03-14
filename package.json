@@ -1,6 +1,6 @@
 {
   "name": "@iterout/auth-module",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "auth module for node backend applications",
   "type": "module",
   "scripts": {

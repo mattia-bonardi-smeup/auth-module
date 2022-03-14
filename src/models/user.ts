@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String,
   type: String,
-  role: String,
+  roles: String,
   isOauth: {
     type: Boolean,
     default: false,

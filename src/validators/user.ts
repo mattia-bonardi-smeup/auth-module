@@ -1,4 +1,4 @@
-import { IsBoolean, IsString } from "class-validator";
+import { IsArray, IsBoolean, IsString } from "class-validator";
 
 /**
  * User validator
@@ -11,22 +11,22 @@ export default class UserDto {
   isActive: boolean;
 
   @IsString()
-  firstName: string;
-
-  @IsString()
-  lastName: string;
-
-  @IsString()
   email: string;
 
   @IsString()
   password: string;
 
   @IsString()
-  type: string;
+  firstName: string;
 
   @IsString()
-  role: string;
+  lastName: string;
+
+  @IsString()
+  type: string;
+
+  @IsArray()
+  roles: string[];
 
   @IsBoolean()
   isOauth: boolean;

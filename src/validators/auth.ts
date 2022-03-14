@@ -13,3 +13,11 @@ export class AuthDataDto {
   @IsString()
   type: string;
 }
+
+/**
+ * Id dto validator
+ */
+export class IdDto {
+  @IsString()
+  id: string;
+}

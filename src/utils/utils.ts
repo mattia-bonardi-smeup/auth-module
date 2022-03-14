@@ -4,7 +4,7 @@ import User from "../types/user.js";
  * Create empty user function
  * @returns
  */
-export default function createUser(): User {
+export default function createEmptyUser(): User {
   return {
     id: "",
     email: "",
