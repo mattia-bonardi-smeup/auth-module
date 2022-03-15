@@ -1,11 +1,12 @@
 {
   "name": "@iterout/auth-module",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "description": "auth module for node backend applications",
   "type": "module",
   "scripts": {
     "clean": "rimraf lib",
-    "build": "npm run clean && tsc"
+    "build": "npm run clean && tsc",
+    "test": "jest"
   },
   "repository": {
     "type": "git",

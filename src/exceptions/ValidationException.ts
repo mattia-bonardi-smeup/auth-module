@@ -1,8 +1,8 @@
 import HttpException from "./HttpException.js";
 
 class ValidationException extends HttpException {
-  constructor(error: any) {
-    super(400, "Validation exception: " + error);
+  constructor(messages: string) {
+    super(400, "Request validation exception: " + messages);
   }
 }
 

@@ -1,6 +1,6 @@
 class MongoCrudException extends Error {
-  public status: number = 500;
-  public message: string;
+  public statusCode: number = 500;
+  public statusMessage: string = "Mongo Crud Exception";
   constructor(error: any) {
     super(error);
   }
