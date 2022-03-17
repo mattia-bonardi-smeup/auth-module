@@ -14,7 +14,7 @@ export * from "./functions/refreshToken.js";
 export * from "./functions/registration.js";
 export * from "./functions/updateUser.js";
 export * from "./functions/getUserById.js";
-export * from "./functions/deleteUser";
+export * from "./functions/deleteUser.js";
 
 /**
  * Types
