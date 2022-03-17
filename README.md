@@ -5,7 +5,7 @@ Auth module for node.js backend applications
 ## Installation
 
 ```
-npm install auth-module
+npm install @iterout/auth-module
 ```
 
 ## Configuration
@@ -13,14 +13,14 @@ npm install auth-module
 By the default auth module is pre configured but it is possible to use custom configuration like this:
 
 ```
-import authModuleConfiguration from "auth-module/dist/configurations/AuthModuleConfiguration";
+import {authModuleConfiguration} from "@iterout/auth-module";
 
 authModuleConfiguration.setJwtSecret([JWT_SECRET]);
 authModuleConfiguration.setJAccessTokenDuration([ACCESS_TOKEN_DURATION]);
 authModuleConfiguration.setRefreshTokenDuration([REFRESH_TOKEN_DURATION]);
 ```
 
-## User attributes
+## User attributes (User type)
 
 - id: user id
 - isActive: active flag
@@ -74,8 +74,6 @@ Check refreshToken and return new accessToken
 refreshToken(refreshToken: string): Promise<TokenData>
 ```
 
-## Middlewares
-
 ## authorizeUser
 
 Check accessToken, and user roles
@@ -84,12 +82,36 @@ Check accessToken, and user roles
 authorizeUser(accessToken: string, ...roles: string[]): Promise<User>
 ```
 
+## getUserById
+
+Getting user info (password will be blank)
+
+```
+getUserById(userId: string)
+```
+
+## deleteUser
+
+Delete user
+
+```
+deleteUser(userId: string)
+```
+
+## updateUser
+
+Update user
+
+```
+updateUser(userUpdated: User)
+```
+
 ## Utils
 
-### createUser
+### createEmptyUser
 
 Create empty user
 
 ```
-createUser(): Promise<User>
+createEmptyUser(): User
 ```

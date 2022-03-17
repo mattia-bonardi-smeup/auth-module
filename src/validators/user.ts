@@ -3,7 +3,7 @@ import { IsArray, IsBoolean, IsString } from "class-validator";
 /**
  * User validator
  */
-export default class UserDto {
+export class UserDto {
   @IsString()
   id: string;
 

@@ -1,9 +1,9 @@
-import AuthenticationTokenMissingException from "../exceptions/AuthenticationTokenMissingException.js";
-import OperationNotPermittedException from "../exceptions/OperationNotPermittedException.js";
-import WrongAuthenticationTokenException from "../exceptions/WrongAuthenticationTokenException.js";
-import userModel from "../models/user.js";
+import { AuthenticationTokenMissingException } from "../exceptions/AuthenticationTokenMissingException.js";
+import { OperationNotPermittedException } from "../exceptions/OperationNotPermittedException.js";
+import { WrongAuthenticationTokenException } from "../exceptions/WrongAuthenticationTokenException.js";
+import { userModel } from "../models/user.js";
 import { verifyToken } from "../services/token.js";
-import User from "../types/user.js";
+import type { User } from "../types/user.js";
 
 /**
  * Authorize user function
@@ -11,7 +11,7 @@ import User from "../types/user.js";
  * @param roles
  * @returns user
  */
-export default async function authorizeUser(
+export async function authorizeUser(
   accessToken: string,
   ...roles: string[]
 ): Promise<User> {

@@ -1,6 +1,6 @@
-import AuthenticationTokenMissingException from "../exceptions/AuthenticationTokenMissingException.js";
-import WrongAuthenticationTokenException from "../exceptions/WrongAuthenticationTokenException.js";
-import userModel from "../models/user.js";
+import { AuthenticationTokenMissingException } from "../exceptions/AuthenticationTokenMissingException.js";
+import { WrongAuthenticationTokenException } from "../exceptions/WrongAuthenticationTokenException.js";
+import { userModel } from "../models/user.js";
 import { createAccessToken, verifyToken } from "../services/token.js";
 import { TokenData } from "../types/auth.js";
 
@@ -9,9 +9,7 @@ import { TokenData } from "../types/auth.js";
  * @param refreshToken
  * @returns accessToken, refreshToken
  */
-export default async function refreshToken(
-  refreshToken: string
-): Promise<TokenData> {
+export async function refreshToken(refreshToken: string): Promise<TokenData> {
   if (refreshToken) {
     try {
       const verificationResponse = verifyToken(refreshToken.split(" ")[1]);

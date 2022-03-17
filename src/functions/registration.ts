@@ -1,14 +1,14 @@
-import MongoCrudException from "../exceptions/MongoCrudException.js";
-import UserWithThatEmailAlreadyExistsException from "../exceptions/UserWithThatEmailAlreadyExistsException.js";
-import userModel from "../models/user.js";
+import { MongoCrudException } from "../exceptions/MongoCrudException.js";
+import { UserWithThatEmailAlreadyExistsException } from "../exceptions/UserWithThatEmailAlreadyExistsException.js";
+import { userModel } from "../models/user.js";
 import { cryptString } from "../services/crypt.js";
-import User from "../types/user.js";
+import type { User } from "../types/user.js";
 
 /**
  * Registration function
  * @param user
  */
-export default async function registration(user: User) {
+export async function registration(user: User) {
   try {
     // check that user already exist
     if (await userModel.findOne({ email: user.email })) {

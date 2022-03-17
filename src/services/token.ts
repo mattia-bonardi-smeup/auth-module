@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import authModuleConfiguration from "../configurations/AuthModuleConfiguration.js";
-import WrongAuthenticationTokenException from "../exceptions/WrongAuthenticationTokenException.js";
+import { authModuleConfiguration } from "../configurations/AuthModuleConfiguration.js";
+import { WrongAuthenticationTokenException } from "../exceptions/WrongAuthenticationTokenException.js";
 import { SessionData } from "../types/auth.js";
 
 /**

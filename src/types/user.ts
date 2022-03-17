@@ -1,7 +1,7 @@
 /**
  * User
  */
-type User = {
+export type User = {
   /** Id */
   id: string;
   /** IsActive */
@@ -21,5 +21,3 @@ type User = {
   /** Is oauth user ? */
   isOauth: boolean;
 };
-
-export default User;

@@ -1,10 +1,10 @@
-import User from "../types/user.js";
+import type { User } from "../types/user.js";
 
 /**
  * Create empty user function
  * @returns
  */
-export default function createEmptyUser(): User {
+export function createEmptyUser(): User {
   return {
     id: "",
     email: "",

@@ -1,9 +1,7 @@
-import HttpException from "./HttpException.js";
+import { HttpException } from "./HttpException.js";
 
-class NotAuthorizedException extends HttpException {
+export class NotAuthorizedException extends HttpException {
   constructor() {
     super(403, "You're not authorized");
   }
 }
-
-export default NotAuthorizedException;

@@ -1,10 +1,17 @@
 {
   "name": "@iterout/auth-module",
-  "version": "1.1.2",
-  "description": "auth module for node backend applications",
+  "version": "1.2.2",
+  "description": "Auth module for node backend applications",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf dist",
     "build": "npm run clean && tsc",
     "test": "jest"
   },
@@ -29,14 +36,11 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "class-transformer": "^0.4.0",
     "class-validator": "^0.13.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.4"
   },
   "files": [
-    "lib/",
-    "index.js",
-    "index.d.ts"
+    "dist/"
   ]
 }

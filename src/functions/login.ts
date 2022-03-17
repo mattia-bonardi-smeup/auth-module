@@ -1,17 +1,17 @@
-import NotAuthorizedException from "../exceptions/NotAuthorizedException.js";
-import WrongCredentialsException from "../exceptions/WrongCredentialsException.js";
-import userModel from "../models/user.js";
+import { NotAuthorizedException } from "../exceptions/NotAuthorizedException.js";
+import { WrongCredentialsException } from "../exceptions/WrongCredentialsException.js";
+import { userModel } from "../models/user.js";
 import { compareCryptString } from "../services/crypt.js";
 import { createAccessToken, createRefreshToken } from "../services/token.js";
 import { AuthData, TokenData } from "../types/auth.js";
-import User from "../types/user.js";
+import type { User } from "../types/user.js";
 
 /**
  * Login function
  * @param authData
  * @returns accessToken, refreshToken
  */
-export default async function login(authData: AuthData): Promise<TokenData> {
+export async function login(authData: AuthData): Promise<TokenData> {
   const user: User = await userModel.findOne({ email: authData.email });
   if (
     user &&

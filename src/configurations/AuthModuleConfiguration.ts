@@ -29,5 +29,4 @@ class AuthModuleConfiguration {
   }
 }
 
-const authModuleConfiguration = new AuthModuleConfiguration();
-export default authModuleConfiguration;
+export const authModuleConfiguration = new AuthModuleConfiguration();

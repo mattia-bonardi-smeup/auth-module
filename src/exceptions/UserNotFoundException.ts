@@ -1,9 +1,7 @@
-import HttpException from "./HttpException.js";
+import { HttpException } from "./HttpException.js";
 
-class UserNotFoundException extends HttpException {
+export class UserNotFoundException extends HttpException {
   constructor(id: string) {
     super(404, `User with id ${id} not found`);
   }
 }
-
-export default UserNotFoundException;
