@@ -6,6 +6,7 @@
     "declaration": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist/"
+    "outDir": "dist/",
+    "types": ["jest"]
   }
 }

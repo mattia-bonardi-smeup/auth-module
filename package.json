@@ -1,6 +1,6 @@
 {
   "name": "@iterout/auth-module",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Auth module for node backend applications",
   "type": "module",
   "exports": {
@@ -28,19 +28,33 @@
     "url": "https://github.com/mattia-bonardi-smeup/auth-module/issues"
   },
   "homepage": "https://github.com/mattia-bonardi-smeup/auth-module#readme",
-  "devDependencies": {
-    "@types/bcryptjs": "^2.4.2",
-    "@types/jsonwebtoken": "^8.3.7",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.6.2"
-  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.13.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.4"
   },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jest": "^27.4.0",
+    "@types/jsonwebtoken": "^8.3.7",
+    "jest": "^27.4.7",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.2",
+    "ts-jest": "next"
+  },
   "files": [
     "dist/"
-  ]
+  ],
+  "jest": {
+    "preset": "ts-jest/presets/default-esm",
+    "globals": {
+      "ts-jest": {
+        "useESM": true
+      }
+    },
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    }
+  }
 }

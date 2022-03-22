@@ -22,3 +22,13 @@ export type SessionData = {
   userId: string;
   tokenType: string;
 };
+
+/**
+ * Password data
+ */
+export type PasswordData = {
+  userId: string;
+  oldPassword: string;
+  password: string;
+  confirmPassword: string;
+};
