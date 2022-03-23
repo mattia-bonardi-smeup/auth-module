@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/mattia-bonardi-smeup/auth-module#readme",
   "dependencies": {
+    "@iterout/email-sender-module": "file:../email-sender-module",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.13.2",
     "jsonwebtoken": "^8.5.1",

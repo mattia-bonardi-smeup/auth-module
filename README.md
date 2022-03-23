@@ -10,14 +10,22 @@ npm install @iterout/auth-module
 
 ## Configuration
 
-By the default auth module is pre configured but it is possible to use custom configuration like this:
+Email sender configuration is mandatory and JWT is pre configured with default values.
 
 ```
-import {authModuleConfiguration} from "@iterout/auth-module";
+import { configureAuthEmailSender, configureJwt } from "@iterout/auth-module";
 
-authModuleConfiguration.setJwtSecret([JWT_SECRET]);
-authModuleConfiguration.setJAccessTokenDuration([ACCESS_TOKEN_DURATION]);
-authModuleConfiguration.setRefreshTokenDuration([REFRESH_TOKEN_DURATION]);
+configureAuthEmailSender(
+  sender,
+  password,
+  service,
+  frontendUrl,
+  devFrontEndUrl,
+  emailTemplateDir?
+);
+
+// optional
+configureJwt(jwtParameters: JwtParameters);
 ```
 
 ## User attributes (User type)

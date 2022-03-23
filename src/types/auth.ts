@@ -32,3 +32,12 @@ export type PasswordData = {
   password: string;
   confirmPassword: string;
 };
+
+/**
+ * Jwt parameters
+ */
+export type JwtParameters = {
+  secret?: string;
+  accessTokenDuration?: number;
+  refreshTokenDuration?: number;
+};
