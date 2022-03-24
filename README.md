@@ -22,7 +22,7 @@ import { join } from "path";
 
 // create auth email configuration
 const authEmailConfig: EmailConfig = createEmailConfig(
-  emailTemplatesDirectories: [
+  [
     join(process.cwd(), [MAIL_TEMPLATE_DIR],
     join(process.cwd(), "node_modules", "@iterout", "auth-module", "mail_templates")
   ],
@@ -35,7 +35,6 @@ const authEmailConfig: EmailConfig = createEmailConfig(
 configureAuth(
   authEmailConfig,
   [FRONTEND_URL],
-  [DEV_FRONTEND_URL], //optional
   [JWT_SECRET], //optional
   [JWT_ACCESS_TOKEN_DURATION], //optional
   [JWT_REFRESH_TOKEN_DURATION] //optional

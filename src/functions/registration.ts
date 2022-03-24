@@ -1,6 +1,5 @@
 import { sendEmail, TemplateVariables } from "@iterout/email-sender-module";
 import { EmailSenderException } from "@iterout/email-sender-module/dist/exceptions/EmailSenderException";
-import mongoose from "mongoose";
 import { authModuleConfiguration } from "../configurations/AuthModuleConfiguration.js";
 import { MongoCrudException } from "../exceptions/MongoCrudException.js";
 import { UserWithThatEmailAlreadyExistsException } from "../exceptions/UserWithThatEmailAlreadyExistsException.js";
@@ -27,10 +26,7 @@ export async function registration(user: User) {
     // send confirm registration email
     const variables: TemplateVariables = {
       firstName: userCreated.firstName,
-      link:
-        process.env.NODE_ENV == "production"
-          ? `${authModuleConfiguration.FRONTEND_URL}/confirmSignIn`
-          : `${authModuleConfiguration.DEV_FRONTEND_URL}/confirmSignIn`,
+      link: `${authModuleConfiguration.FRONTEND_URL}/confirmSignIn`,
     };
     await sendEmail(
       authModuleConfiguration.AUTH_EMAIL_CONFIG,

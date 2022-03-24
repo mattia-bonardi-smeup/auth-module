@@ -2,6 +2,7 @@
  * Configuration
  */
 export * from "./configurations/AuthModuleConfiguration.js";
+export * from "./configurations/configuration.js";
 
 /**
  * Function

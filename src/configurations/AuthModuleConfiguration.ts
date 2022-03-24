@@ -20,10 +20,6 @@ class AuthModuleConfiguration {
    */
   public FRONTEND_URL: string;
   /**
-   * DEV frontend application url
-   */
-  public DEV_FRONTEND_URL: string;
-  /**
    * Email config
    */
   public AUTH_EMAIL_CONFIG: EmailConfig;
