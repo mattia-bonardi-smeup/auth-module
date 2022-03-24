@@ -1,6 +1,6 @@
 {
   "name": "@iterout/auth-module",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Auth module for node backend applications",
   "type": "module",
   "exports": {
@@ -45,7 +45,8 @@
     "ts-jest": "next"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "mail_templates"
   ],
   "jest": {
     "preset": "ts-jest/presets/default-esm",

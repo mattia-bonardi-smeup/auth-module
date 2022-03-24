@@ -8,5 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "outDir": "dist/",
     "types": ["jest"]
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
