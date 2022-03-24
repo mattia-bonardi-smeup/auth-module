@@ -1,6 +1,6 @@
 {
   "name": "@iterout/auth-module",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Auth module for node backend applications",
   "type": "module",
   "exports": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/mattia-bonardi-smeup/auth-module#readme",
   "dependencies": {
-    "@iterout/email-sender-module": "file:../email-sender-module",
+    "@iterout/email-sender-module": "^1.0.5",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.13.2",
     "jsonwebtoken": "^8.5.1",

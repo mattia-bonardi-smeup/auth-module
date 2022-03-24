@@ -10,22 +10,36 @@ npm install @iterout/auth-module
 
 ## Configuration
 
-Email sender configuration is mandatory and JWT is pre configured with default values.
+To use correctly the auth-module you must configure:
 
-```
-import { configureAuthEmailSender, configureJwt } from "@iterout/auth-module";
+- Email service
+- Jwt service (optional)
 
-configureAuthEmailSender(
-  sender,
-  password,
-  service,
-  frontendUrl,
-  devFrontEndUrl,
-  emailTemplateDir?
-);
+```typescript
+import { configureAuth } from "@iterout/auth-module";
+import { createEmailConfig } from "@iterout/email-sender-module";
+import { join } from "path";
 
-// optional
-configureJwt(jwtParameters: JwtParameters);
+// create auth email configuration
+const authEmailConfig: EmailConfig = createEmailConfig(
+  emailTemplatesDirectories: [
+    join(process.cwd(), [MAIL_TEMPLATE_DIR],
+    join(process.cwd(), "node_modules", "@iterout", "auth-module", "mail_templates")
+  ],
+  [EMAIL_SENDER],
+  [EMAIL_SENDER_PASSWORD],
+  [EMAIL_SERVICE]
+)
+
+// configure auth module
+configureAuth(
+  authEmailConfig,
+  [FRONTEND_URL],
+  [DEV_FRONTEND_URL], //optional
+  [JWT_SECRET], //optional
+  [JWT_ACCESS_TOKEN_DURATION], //optional
+  [JWT_REFRESH_TOKEN_DURATION] //optional
+)
 ```
 
 ## User attributes (User type)
@@ -46,7 +60,7 @@ configureJwt(jwtParameters: JwtParameters);
 
 Verify user credential to mongodb and retrun authorizations tokens
 
-```
+```typescript
 login(authData: AuthData): Promise<TokenData>
 ```
 
@@ -54,7 +68,7 @@ login(authData: AuthData): Promise<TokenData>
 
 Clear and return tokens
 
-```
+```typescript
 logout(): Promise<TokenData>
 ```
 

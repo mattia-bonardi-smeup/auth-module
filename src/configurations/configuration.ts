@@ -1,8 +1,4 @@
-import {
-  configureEmailSenderModule,
-  createEmailTransporter,
-  EmailServices,
-} from "@iterout/email-sender-module";
+import { EmailConfig } from "@iterout/email-sender-module";
 import { JwtParameters } from "../types/auth.js";
 import { authModuleConfiguration } from "./AuthModuleConfiguration.js";
 
@@ -13,34 +9,18 @@ import { authModuleConfiguration } from "./AuthModuleConfiguration.js";
  * @param service
  * @param emailTemplate
  */
-export function configureAuthEmailSender(
-  sender: string,
-  password: string,
-  service: EmailServices,
+export function configureAuth(
+  authEmailConfig: EmailConfig,
   frontendUrl: string,
-  devFrontEndUrl: string,
-  emailTemplateDir?: string
+  devFrontEndUrl: string = "http://localhost:3000",
+  jwtSecret: string = "fdshkdjhzklhzk",
+  jwtAccessTokenDuration: number = 3600,
+  jwtRefreshTokenDuration: number = 14400
 ) {
-  const tranporter = createEmailTransporter(sender, password, service);
-  configureEmailSenderModule(emailTemplateDir, [tranporter]);
   authModuleConfiguration.FRONTEND_URL = frontendUrl;
   authModuleConfiguration.DEV_FRONTEND_URL = devFrontEndUrl;
-}
-
-/**
- * Jwt configuration
- * @param jwtParameters
- */
-export function configureJwt(jwtParameters: JwtParameters) {
-  if (jwtParameters.secret) {
-    authModuleConfiguration.JWT_SECRET = jwtParameters.secret;
-  }
-  if (jwtParameters.accessTokenDuration) {
-    authModuleConfiguration.ACCESS_TOKEN_DURATION =
-      jwtParameters.accessTokenDuration;
-  }
-  if (jwtParameters.refreshTokenDuration) {
-    authModuleConfiguration.REFRESH_TOKEN_DURATION =
-      jwtParameters.refreshTokenDuration;
-  }
+  authModuleConfiguration.AUTH_EMAIL_CONFIG = authEmailConfig;
+  authModuleConfiguration.JWT_SECRET = jwtSecret;
+  authModuleConfiguration.ACCESS_TOKEN_DURATION = jwtAccessTokenDuration;
+  authModuleConfiguration.REFRESH_TOKEN_DURATION = jwtRefreshTokenDuration;
 }

@@ -9,12 +9,12 @@ import { SessionData } from "../types/auth.js";
  * @returns
  */
 export const createAccessToken = (userId: string) => {
-  const expiresIn = authModuleConfiguration.getAccessTokenDuration();
+  const expiresIn = authModuleConfiguration.ACCESS_TOKEN_DURATION;
   const dataStoredInToken: SessionData = {
     userId: userId,
     tokenType: "ACCESS_TOKEN",
   };
-  return jwt.sign(dataStoredInToken, authModuleConfiguration.getJwtSecret(), {
+  return jwt.sign(dataStoredInToken, authModuleConfiguration.JWT_SECRET, {
     expiresIn,
   });
 };
@@ -25,12 +25,12 @@ export const createAccessToken = (userId: string) => {
  * @returns
  */
 export const createRefreshToken = (userId: string) => {
-  const expiresIn = authModuleConfiguration.GetRefreshTokenDuration();
+  const expiresIn = authModuleConfiguration.REFRESH_TOKEN_DURATION;
   const dataStoredInToken: SessionData = {
     userId: userId,
     tokenType: "REFRESH_TOKEN",
   };
-  return jwt.sign(dataStoredInToken, authModuleConfiguration.getJwtSecret(), {
+  return jwt.sign(dataStoredInToken, authModuleConfiguration.JWT_SECRET, {
     expiresIn,
   });
 };
@@ -42,10 +42,7 @@ export const createRefreshToken = (userId: string) => {
  */
 export const verifyToken = (token: string): SessionData => {
   try {
-    return jwt.verify(
-      token,
-      authModuleConfiguration.getJwtSecret()
-    ) as SessionData;
+    return jwt.verify(token, authModuleConfiguration.JWT_SECRET) as SessionData;
   } catch (error) {
     throw new WrongAuthenticationTokenException();
   }
