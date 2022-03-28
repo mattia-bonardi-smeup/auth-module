@@ -1,4 +1,11 @@
-import { IsArray, IsBoolean, IsString } from "class-validator";
+import {
+  IsArray,
+  IsBoolean,
+  IsObject,
+  IsString,
+  ValidateNested,
+} from "class-validator";
+import { AddressDto, PhoneDto } from "./general";
 
 /**
  * User validator
@@ -30,4 +37,15 @@ export class UserDto {
 
   @IsBoolean()
   isOauth: boolean;
+
+  @IsObject()
+  @ValidateNested()
+  address: AddressDto;
+
+  @IsObject()
+  @ValidateNested()
+  phone: PhoneDto;
+
+  @IsString()
+  picture: string;
 }

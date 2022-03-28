@@ -22,6 +22,7 @@ export * from "./functions/deleteUser.js";
  */
 export * from "./types/auth.js";
 export * from "./types/user.js";
+export * from "./types/general.js";
 
 /**
  * Utils
@@ -33,6 +34,7 @@ export * from "./utils/utils.js";
  */
 export * from "./validators/auth.js";
 export * from "./validators/user.js";
+export * from "./validators/general.js";
 
 /**
  * Model
@@ -44,3 +46,4 @@ export * from "./models/user.js";
  */
 export * from "./services/token.js";
 export * from "./services/crypt.js";
+export * from "./services/password.js";

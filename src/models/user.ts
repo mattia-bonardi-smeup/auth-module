@@ -15,6 +15,21 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  address: {
+    street: String,
+    city: String,
+    country: String,
+    cap: Number,
+  },
+  phone: {
+    prefix: String,
+    number: String,
+    isValid: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  picture: String,
 });
 
 export const userModel = mongoose.model("Users", userSchema);

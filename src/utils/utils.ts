@@ -15,5 +15,17 @@ export function createEmptyUser(): User {
     password: "",
     roles: [],
     type: "",
+    address: {
+      street: "",
+      cap: 0,
+      city: "",
+      country: "",
+    },
+    phone: {
+      prefix: "",
+      number: "",
+      isValid: false,
+    },
+    picture: "",
   };
 }

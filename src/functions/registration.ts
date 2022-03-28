@@ -1,5 +1,8 @@
-import { sendEmail, TemplateVariables } from "@iterout/email-sender-module";
-import { EmailSenderException } from "@iterout/email-sender-module/dist/exceptions/EmailSenderException";
+import {
+  sendEmail,
+  TemplateVariables,
+  EmailSenderException,
+} from "@iterout/email-sender-module";
 import { authModuleConfiguration } from "../configurations/AuthModuleConfiguration.js";
 import { MongoCrudException } from "../exceptions/MongoCrudException.js";
 import { UserWithThatEmailAlreadyExistsException } from "../exceptions/UserWithThatEmailAlreadyExistsException.js";

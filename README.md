@@ -41,18 +41,6 @@ configureAuth(
 )
 ```
 
-## User attributes (User type)
-
-- id: user id
-- isActive: active flag
-- email: email
-- password: password
-- firstName: first name
-- lastName: last name
-- type: types of user (es. customer, admin...)
-- roles: roles
-- isOauth: oath flag
-
 ## Functions
 
 ### Login
@@ -75,7 +63,7 @@ logout(): Promise<TokenData>
 
 Check and save user to mongodb
 
-```
+```typescript
 registration(user: User)
 ```
 
@@ -83,7 +71,7 @@ registration(user: User)
 
 Confirm user registration. Set isActive = true
 
-```
+```typescript
 confirmSignIn(userId: string)
 ```
 
@@ -91,7 +79,7 @@ confirmSignIn(userId: string)
 
 Check refreshToken and return new accessToken
 
-```
+```typescript
 refreshToken(refreshToken: string): Promise<TokenData>
 ```
 
@@ -99,7 +87,7 @@ refreshToken(refreshToken: string): Promise<TokenData>
 
 Check accessToken, and user roles
 
-```
+```typescript
 authorizeUser(accessToken: string, ...roles: string[]): Promise<User>
 ```
 
@@ -107,7 +95,7 @@ authorizeUser(accessToken: string, ...roles: string[]): Promise<User>
 
 Getting user info (password will be blank)
 
-```
+```typescript
 getUserById(userId: string)
 ```
 
@@ -115,7 +103,7 @@ getUserById(userId: string)
 
 Delete user
 
-```
+```typescript
 deleteUser(userId: string)
 ```
 
@@ -123,7 +111,7 @@ deleteUser(userId: string)
 
 Update user
 
-```
+```typescript
 updateUser(userUpdated: User)
 ```
 
@@ -133,6 +121,6 @@ updateUser(userUpdated: User)
 
 Create empty user
 
-```
+```typescript
 createEmptyUser(): User
 ```

@@ -1,3 +1,5 @@
+import { Address, Phone } from "./general.js";
+
 /**
  * User
  */
@@ -20,4 +22,10 @@ export type User = {
   roles: string[];
   /** Is oauth user ? */
   isOauth: boolean;
+  /** address */
+  address: Address;
+  /** Phone */
+  phone: Phone;
+  /** Picture url */
+  picture: string;
 };
