@@ -47,3 +47,16 @@ export const verifyToken = (token: string): SessionData => {
     throw new WrongAuthenticationTokenException();
   }
 };
+
+/**
+ * Create generic token
+ */
+export const createGenericToken = (userId: string, expiresIn: number) => {
+  const sessionData: SessionData = {
+    userId: userId,
+    tokenType: "GENERIC_TOKEN",
+  };
+  return jwt.sign(sessionData, authModuleConfiguration.JWT_SECRET, {
+    expiresIn,
+  });
+};

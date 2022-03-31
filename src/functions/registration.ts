@@ -8,6 +8,7 @@ import { MongoCrudException } from "../exceptions/MongoCrudException.js";
 import { UserWithThatEmailAlreadyExistsException } from "../exceptions/UserWithThatEmailAlreadyExistsException.js";
 import { userModel } from "../models/user.js";
 import { cryptString } from "../services/crypt.js";
+import { createGenericToken } from "../services/token.js";
 import type { User } from "../types/user.js";
 
 /**
@@ -29,7 +30,9 @@ export async function registration(user: User) {
     // send confirm registration email
     const variables: TemplateVariables = {
       firstName: userCreated.firstName,
-      link: `${authModuleConfiguration.FRONTEND_URL}/confirmSignIn`,
+      link: `${
+        authModuleConfiguration.FRONTEND_URL
+      }/confirmSignIn?t=${createGenericToken(userCreated.id, 86400)}`,
     };
     await sendEmail(
       authModuleConfiguration.AUTH_EMAIL_CONFIG,

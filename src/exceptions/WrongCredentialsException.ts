@@ -1,6 +1,6 @@
-import { HttpException } from "./HttpException.js";
+import { AuthException } from "./AuthException.js";
 
-export class WrongCredentialsException extends HttpException {
+export class WrongCredentialsException extends AuthException {
   constructor() {
     super(401, "Wrong credentials provided");
   }

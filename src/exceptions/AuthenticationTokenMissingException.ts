@@ -1,6 +1,6 @@
-import { HttpException } from "./HttpException.js";
+import { AuthException } from "./AuthException.js";
 
-export class AuthenticationTokenMissingException extends HttpException {
+export class AuthenticationTokenMissingException extends AuthException {
   constructor() {
     super(401, "Authentication token missing");
   }
