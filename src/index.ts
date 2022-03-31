@@ -16,6 +16,9 @@ export * from "./functions/registration.js";
 export * from "./functions/updateUser.js";
 export * from "./functions/getUserById.js";
 export * from "./functions/deleteUser.js";
+export * from "./functions/changePassword.js";
+export * from "./functions/resetPassword.js";
+export * from "./functions/sendResetPassword.js";
 
 /**
  * Types

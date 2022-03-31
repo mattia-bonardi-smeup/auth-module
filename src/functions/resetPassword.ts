@@ -17,7 +17,7 @@ import { User } from "../types/user.js";
  * @param password
  * @param confirmedPassword
  */
-export async function confirmSignIn(
+export async function resetPassword(
   token: string,
   password: string,
   confirmedPassword: string

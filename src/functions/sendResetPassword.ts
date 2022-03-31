@@ -1,11 +1,8 @@
 import { sendEmail, TemplateVariables } from "@iterout/email-sender-module";
 import { authModuleConfiguration } from "../configurations/AuthModuleConfiguration.js";
-import { AuthenticationTokenMissingException } from "../exceptions/AuthenticationTokenMissingException.js";
 import { MongoCrudException } from "../exceptions/MongoCrudException.js";
-import { OperationNotPermittedException } from "../exceptions/OperationNotPermittedException.js";
-import { WrongAuthenticationTokenException } from "../exceptions/WrongAuthenticationTokenException.js";
 import { userModel } from "../models/user.js";
-import { createGenericToken, verifyToken } from "../services/token.js";
+import { createGenericToken } from "../services/token.js";
 import type { User } from "../types/user.js";
 
 /**

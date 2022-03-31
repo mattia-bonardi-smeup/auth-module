@@ -1,3 +1,5 @@
+import { sendEmail, TemplateVariables } from "@iterout/email-sender-module";
+import { authModuleConfiguration } from "../configurations/AuthModuleConfiguration.js";
 import { AuthenticationTokenMissingException } from "../exceptions/AuthenticationTokenMissingException.js";
 import { MongoCrudException } from "../exceptions/MongoCrudException.js";
 import { WrongAuthenticationTokenException } from "../exceptions/WrongAuthenticationTokenException.js";
@@ -17,6 +19,19 @@ export async function confirmSignIn(token: string) {
         userModel
           .findByIdAndUpdate(user.id, {
             isActive: true,
+          })
+          .then(() => {
+            // send notification email
+            const variables: TemplateVariables = {
+              firstName: user.firstName,
+            };
+            sendEmail(
+              authModuleConfiguration.AUTH_EMAIL_CONFIG,
+              user.email,
+              "Account activated successfully",
+              "accountActivated",
+              variables
+            );
           })
           .catch((error) => {
             throw new MongoCrudException(error);
