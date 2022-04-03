@@ -8,7 +8,7 @@ export class AddressDto {
   city: string;
 
   @IsString()
-  country?: string;
+  country: string;
 
   @IsNumber()
   cap: number;
