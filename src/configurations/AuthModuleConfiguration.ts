@@ -23,6 +23,10 @@ class AuthModuleConfiguration {
    * Email config
    */
   public AUTH_EMAIL_CONFIG: EmailConfig;
+  /**
+   * Google client id
+   */
+  public GOOGLE_CLIENT_ID: string;
 }
 
 export const authModuleConfiguration = new AuthModuleConfiguration();

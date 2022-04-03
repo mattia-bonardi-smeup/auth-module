@@ -21,3 +21,11 @@ export function configureAuth(
   authModuleConfiguration.ACCESS_TOKEN_DURATION = jwtAccessTokenDuration;
   authModuleConfiguration.REFRESH_TOKEN_DURATION = jwtRefreshTokenDuration;
 }
+
+/**
+ * Oauth configuration
+ * @param googleClientId
+ */
+export function configureOAuth(googleClientId: string) {
+  authModuleConfiguration.GOOGLE_CLIENT_ID = googleClientId;
+}
