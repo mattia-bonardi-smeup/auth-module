@@ -14,8 +14,9 @@ import type { User } from "../types/user.js";
 /**
  * Registration function
  * @param user
+ * @returns userId
  */
-export async function registration(user: User) {
+export async function registration(user: User): Promise<string> {
   try {
     // check that user already exist
     if (await userModel.findOne({ email: user.email })) {
@@ -34,13 +35,14 @@ export async function registration(user: User) {
         authModuleConfiguration.FRONTEND_URL
       }/confirmSignIn?t=${createGenericToken(userCreated.id, 86400)}`,
     };
-    await sendEmail(
+    sendEmail(
       authModuleConfiguration.AUTH_EMAIL_CONFIG,
       userCreated.email,
       "Welcome to Iterout, confirm your registration",
       "confirmRegistration",
       variables
     );
+    return userCreated.id;
   } catch (error) {
     if (error instanceof EmailSenderException) {
       throw error;

@@ -1,3 +1,5 @@
+import { sendEmail, TemplateVariables } from "@iterout/email-sender-module";
+import { authModuleConfiguration } from "../../configurations/AuthModuleConfiguration.js";
 import { userModel } from "../../models/user.js";
 import { createAccessToken, createRefreshToken } from "../../services/token.js";
 import { User } from "../../types/user.js";
@@ -31,19 +33,34 @@ export async function googleSignIn(
       const user = await userModel.findOne({
         email: googleUser.email,
       });
-      let userId = null;
+      let userId: string = null;
+      let isLogin: boolean = false;
       if (user) {
         // login
+        isLogin = true;
         userId = user.id;
       } else {
         // Create user into users
         const userCreated = await userModel.create(googleUser);
         userId = userCreated.id;
+        // send notification email
+        const variables: TemplateVariables = {
+          firstName: userCreated.firstName,
+        };
+        sendEmail(
+          authModuleConfiguration.AUTH_EMAIL_CONFIG,
+          user.email,
+          "Account activated successfully",
+          "accountActivated",
+          variables
+        );
       }
       // create authorization tokens
       return {
         accessToken: "Bearer " + createAccessToken(userId),
         refreshToken: "Bearer " + createRefreshToken(userId),
+        userId: userId,
+        isLogin,
       };
     } catch (error) {
       throw error;
