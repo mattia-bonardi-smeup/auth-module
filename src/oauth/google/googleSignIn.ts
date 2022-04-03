@@ -30,7 +30,7 @@ export async function googleSignIn(
         userRoles
       );
       // getting user from database
-      const user = await userModel.findOne({
+      const user: User = await userModel.findOne({
         email: googleUser.email,
       });
       let userId: string = null;
@@ -39,6 +39,11 @@ export async function googleSignIn(
         // login
         isLogin = true;
         userId = user.id;
+        if (user.isOauth == false) {
+          userModel.findByIdAndUpdate(user.id, {
+            isOauth: true,
+          });
+        }
       } else {
         // Create user into users
         const userCreated = await userModel.create(googleUser);
@@ -49,7 +54,7 @@ export async function googleSignIn(
         };
         sendEmail(
           authModuleConfiguration.AUTH_EMAIL_CONFIG,
-          user.email,
+          userCreated.email,
           "Account activated successfully",
           "accountActivated",
           variables
