@@ -40,8 +40,9 @@ export async function googleSignIn(
         isLogin = true;
         userId = user.id;
         if (user.isOauth == false) {
-          userModel.findByIdAndUpdate(user.id, {
+          await userModel.findByIdAndUpdate(userId, {
             isOauth: true,
+            password: "",
           });
         }
       } else {
