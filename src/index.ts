@@ -56,3 +56,4 @@ export * from "./services/password.js";
  */
 export * from "./oauth/google/googleSignIn.js";
 export * from "./oauth/google/googleLogout.js";
+export * from "./oauth/google/types/google.js";
